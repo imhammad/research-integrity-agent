@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Citation Verification Benchmark Example",
+  "type": "object",
+  "required": [
+    "id", "claim_text", "citation_marker", "label", "difficulty", "explanation"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "claim_text": { "type": "string" },
+    "citation_marker": { "type": "string" },
+    "source_title": { "type": ["string", "null"] },
+    "source_authors": { "type": ["array", "null"], "items": { "type": "string" } },
+    "source_year": { "type": ["integer", "null"] },
+    "source_doi": { "type": ["string", "null"] },
+    "source_url": { "type": ["string", "null"] },
+    "source_excerpt": { "type": ["string", "null"] },
+    "label": {
+      "type": "string",
+      "enum": ["VERIFIED", "FABRICATED", "MISATTRIBUTED", "MISREPRESENTED"]
+    },
+    "misrepresentation_subtype": {
+      "type": ["string", "null"],
+      "enum": ["MAGNITUDE", "DIRECTION", "CERTAINTY", "SCOPE", null]
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "medium", "hard"]
+    },
+    "domain": { "type": ["string", "null"] },
+    "explanation": { "type": "string" }
+  }
+}

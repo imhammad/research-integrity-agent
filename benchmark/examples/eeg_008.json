@@ -1,0 +1,16 @@
+{
+  "id": "eeg_008",
+  "claim_text": "Okafor & Lindqvist (2023) introduced a federated meta-learning framework for cross-corpus seizure onset detection, achieving 96.4% sensitivity across four public EEG datasets without any target-domain fine-tuning.",
+  "citation_marker": "Okafor & Lindqvist (2023)",
+  "source_title": null,
+  "source_authors": null,
+  "source_year": null,
+  "source_doi": null,
+  "source_url": null,
+  "source_excerpt": null,
+  "label": "FABRICATED",
+  "misrepresentation_subtype": null,
+  "difficulty": "easy",
+  "domain": "EEG / seizure prediction",
+  "explanation": "This citation was constructed for benchmark purposes and confirmed not to correspond to any real, resolvable publication (checked against web search and standard scholarly indices; no paper by these authors with this title exists). It illustrates the documented real-world pattern of citation fabrication, where a plausible author-name-and-topic combination is paired with a title and result that do not resolve to an actual paper."
+}

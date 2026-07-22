@@ -1,0 +1,16 @@
+{
+  "id": "eeg_005",
+  "claim_text": "Li et al.'s Spatio-Temporal Attention Network (STAN) was evaluated on the CHB-MIT and SIENA scalp EEG datasets, demonstrating strong cross-dataset generalization between the two.",
+  "citation_marker": "Li et al. (2025)",
+  "source_title": "Spatio-Temporal Attention Network for Epileptic Seizure Prediction",
+  "source_authors": ["Zan Li", "Kyongmin Yeo", "Wesley Gifford", "Lara Marcuse", "Madeline Fields", "Bulent Yener"],
+  "source_year": 2025,
+  "source_doi": null,
+  "source_url": "https://arxiv.org/abs/2511.02846",
+  "source_excerpt": "Evaluation on CHB-MIT and MSSM [Mount Sinai School of Medicine] datasets",
+  "label": "MISATTRIBUTED",
+  "misrepresentation_subtype": null,
+  "difficulty": "easy",
+  "domain": "EEG / seizure prediction",
+  "explanation": "STAN was evaluated on the CHB-MIT dataset and the MSSM (Mount Sinai) dataset, not on SIENA. The claim's mention of SIENA and 'cross-dataset generalization between the two' does not match what this paper actually studied, making this a straightforward misattribution once the actual datasets used are checked against the abstract."
+}

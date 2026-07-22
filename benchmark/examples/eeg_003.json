@@ -1,0 +1,16 @@
+{
+  "id": "eeg_003",
+  "claim_text": "Jemal et al. (2024) showed that their domain adaptation approach allows cross-subject seizure prediction models to generalize equally well to pediatric and adult patient populations.",
+  "citation_marker": "Jemal et al. (2024)",
+  "source_title": "Domain adaptation for EEG-based, cross-subject epileptic seizure prediction",
+  "source_authors": ["Imene Jemal", "Lina Abou-Abbas", "Khadidja Henni", "Amar Mitiche", "Neila Mezghani"],
+  "source_year": 2024,
+  "source_doi": "10.3389/fninf.2024.1303380",
+  "source_url": "https://doi.org/10.3389/fninf.2024.1303380",
+  "source_excerpt": "the model accuracy has been notably improved by 10.30% and 7.4% for the CHB-MIT and SIENA datasets, respectively",
+  "label": "MISREPRESENTED",
+  "misrepresentation_subtype": "SCOPE",
+  "difficulty": "hard",
+  "domain": "EEG / seizure prediction",
+  "explanation": "CHB-MIT is a pediatric dataset and SIENA is an adult dataset. The paper's own abstract reports different magnitudes of improvement for the two (10.30% vs. 7.4%), which does not support a claim that generalization is 'equal' across the two populations. Catching this requires comparing the two reported figures against each other rather than reading either in isolation."
+}

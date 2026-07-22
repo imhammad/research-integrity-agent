@@ -1,0 +1,16 @@
+{
+  "id": "eeg_001",
+  "claim_text": "Jemal et al. (2024) found that applying domain adaptation methods improved cross-subject epileptic seizure prediction accuracy by 10.30% on the CHB-MIT dataset and 7.4% on the SIENA dataset, compared to a cross-subject baseline without domain adaptation.",
+  "citation_marker": "Jemal et al. (2024)",
+  "source_title": "Domain adaptation for EEG-based, cross-subject epileptic seizure prediction",
+  "source_authors": ["Imene Jemal", "Lina Abou-Abbas", "Khadidja Henni", "Amar Mitiche", "Neila Mezghani"],
+  "source_year": 2024,
+  "source_doi": "10.3389/fninf.2024.1303380",
+  "source_url": "https://doi.org/10.3389/fninf.2024.1303380",
+  "source_excerpt": "the model accuracy has been notably improved by 10.30% and 7.4% for the CHB-MIT and SIENA datasets, respectively",
+  "label": "VERIFIED",
+  "misrepresentation_subtype": null,
+  "difficulty": "easy",
+  "domain": "EEG / seizure prediction",
+  "explanation": "The claim accurately restates the paper's reported accuracy improvements from domain adaptation on both datasets, matching the abstract's reported figures exactly."
+}

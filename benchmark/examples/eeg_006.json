@@ -1,0 +1,16 @@
+{
+  "id": "eeg_006",
+  "claim_text": "Chen et al.'s CG-MambaNet achieved a higher cross-patient AUC on the SIENA dataset without any domain adaptation than the best domain-adapted result (CDAN+E) reported by Jemal et al., while using fewer EEG channels.",
+  "citation_marker": "Chen et al. (2026)",
+  "source_title": "CG-MambaNet: A spatiotemporal framework for cross-patient epileptic seizure prediction using CNN-GCN-Mamba-BiLSTM with event-level clinical evaluation",
+  "source_authors": ["Mufeng Chen", "Qi Wu", "Bingchao Huang", "Xiwen Lai", "Zekai Chen", "Xinge Ouyang", "Tingyao Zhang", "Xufang Yang", "Quansheng Ren"],
+  "source_year": 2026,
+  "source_doi": null,
+  "source_url": "https://arxiv.org/abs/2606.08226",
+  "source_excerpt": "CG-MambaNet achieves AUC 0.7104 on SIENA without any target-patient data, surpassing the best domain-adapted result (0.61, CDAN+E, Jemal et al.) by a margin of +0.1004... using only 16 EEG channels, compared to 23 channels (CHB-MIT) and 29 channels (SIENA) used by Jemal et al.",
+  "label": "VERIFIED",
+  "misrepresentation_subtype": null,
+  "difficulty": "medium",
+  "domain": "EEG / seizure prediction",
+  "explanation": "CG-MambaNet reports an AUC of 0.7104 on SIENA without domain adaptation, explicitly compared against Jemal et al.'s best domain-adapted CDAN+E result of 0.61 on the same dataset, using only 16 EEG channels versus 23 (CHB-MIT) and 29 (SIENA) channels in Jemal et al. This matches the claim. Verifying it requires checking figures from two different papers rather than one, which is why it's medium rather than easy difficulty."
+}

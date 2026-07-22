@@ -1,0 +1,16 @@
+{
+  "id": "eeg_007",
+  "claim_text": "It has been proven that using fewer EEG channels improves cross-patient generalization in seizure prediction models.",
+  "citation_marker": "Chen et al. (2026)",
+  "source_title": "CG-MambaNet: A spatiotemporal framework for cross-patient epileptic seizure prediction using CNN-GCN-Mamba-BiLSTM with event-level clinical evaluation",
+  "source_authors": ["Mufeng Chen", "Qi Wu", "Bingchao Huang", "Xiwen Lai", "Zekai Chen", "Xinge Ouyang", "Tingyao Zhang", "Xufang Yang", "Quansheng Ren"],
+  "source_year": 2026,
+  "source_doi": null,
+  "source_url": "https://arxiv.org/abs/2606.08226",
+  "source_excerpt": "CG-MambaNet achieves AUC 0.7104 on SIENA without any target-patient data... using only 16 EEG channels, compared to 23 channels (CHB-MIT) and 29 channels (SIENA) used by Jemal et al.",
+  "label": "MISREPRESENTED",
+  "misrepresentation_subtype": "CERTAINTY",
+  "difficulty": "hard",
+  "domain": "EEG / seizure prediction",
+  "explanation": "CG-MambaNet reports a single comparative result in which their 16-channel model outperforms a prior 23/29-channel domain-adapted model on one dataset (SIENA). This is one favorable comparison within one architecture, not a general proof that fewer channels improve generalization -- the paper does not establish this as a causal principle across models or datasets. Framing a single result as 'proven' overstates the certainty the source actually supports."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "eeg_004",
+  "claim_text": "Jemal et al. (2024) introduced a graph convolutional network combined with a Mamba state-space sequence model to capture inter-channel spatial synchrony for cross-patient seizure prediction.",
+  "citation_marker": "Jemal et al. (2024)",
+  "source_title": "Domain adaptation for EEG-based, cross-subject epileptic seizure prediction",
+  "source_authors": ["Imene Jemal", "Lina Abou-Abbas", "Khadidja Henni", "Amar Mitiche", "Neila Mezghani"],
+  "source_year": 2024,
+  "source_doi": "10.3389/fninf.2024.1303380",
+  "source_url": "https://doi.org/10.3389/fninf.2024.1303380",
+  "source_excerpt": "The basic neural network architecture of this model is then adapted to cross-subject prediction... cross-subject modeling is enhanced by domain adaptation",
+  "label": "MISATTRIBUTED",
+  "misrepresentation_subtype": null,
+  "difficulty": "hard",
+  "domain": "EEG / seizure prediction",
+  "explanation": "Jemal et al. (2024) uses domain adaptation neural networks (DANN, CDAN, CDAN+E) on an EEGNet-style convolutional architecture -- it does not use graph convolutional networks or Mamba state-space models. The architecture described in the claim (CNN-GCN-Mamba-BiLSTM) belongs to a separate paper, Chen et al.'s 'CG-MambaNet' (arXiv:2606.08226). Both papers address cross-patient seizure prediction on overlapping datasets (CHB-MIT, SIENA), which makes this an easy mix-up to make but a real one, since the underlying architectures are unrelated."
+}

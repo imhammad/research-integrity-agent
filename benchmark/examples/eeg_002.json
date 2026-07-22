@@ -1,0 +1,16 @@
+{
+  "id": "eeg_002",
+  "claim_text": "Jemal et al. (2024) demonstrated that domain adaptation more than triples cross-subject seizure prediction accuracy on the CHB-MIT dataset.",
+  "citation_marker": "Jemal et al. (2024)",
+  "source_title": "Domain adaptation for EEG-based, cross-subject epileptic seizure prediction",
+  "source_authors": ["Imene Jemal", "Lina Abou-Abbas", "Khadidja Henni", "Amar Mitiche", "Neila Mezghani"],
+  "source_year": 2024,
+  "source_doi": "10.3389/fninf.2024.1303380",
+  "source_url": "https://doi.org/10.3389/fninf.2024.1303380",
+  "source_excerpt": "the model accuracy has been notably improved by 10.30% and 7.4% for the CHB-MIT and SIENA datasets, respectively",
+  "label": "MISREPRESENTED",
+  "misrepresentation_subtype": "MAGNITUDE",
+  "difficulty": "hard",
+  "domain": "EEG / seizure prediction",
+  "explanation": "The source paper reports a 10.30% accuracy improvement on CHB-MIT from domain adaptation, not a threefold (300%+) increase. The direction of the claim is correct (domain adaptation helps) but the magnitude is drastically inflated. This is hard to catch by skimming since the claim's framing sounds plausible; it only breaks down once the exact reported figure is checked."
+}

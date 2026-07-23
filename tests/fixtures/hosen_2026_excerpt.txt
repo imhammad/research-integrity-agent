@@ -1,0 +1,44 @@
+Epilepsy is a long-term neurological disorder that affects
+about 1% of people worldwide. It causes repeated seizures due
+to abnormal brain activity. Fast and accurate seizure detection
+is essential for diagnosis, treatment adjustments, and patient
+safety [1]. EEG is a non-invasive and affordable tool for
+recording brain activity. However, doctors often find it tiring
+and subjective to visually inspect EEG signals, especially
+with long-term monitoring data. Early methods of automated
+seizure detection relied on handcrafted features from wavelet
+transforms, Fourier analysis, or statistical measures. These
+features were used in traditional classifiers like SVM, Decision
+Trees, or Random Forests. While these models performed well
+on specific datasets, they had difficulty managing the high
+variability in EEG data between different individuals.
+Recently, deep learning has emerged as a powerful option.
+Convolutional Neural Networks (CNNs) and Recurrent Neural
+Networks (RNNs) can automatically spot patterns without
+needing explicit feature engineering [2]. However, many current models require a lot of computing power and are not
+suitable for real-time or embedded systems.
+
+Earlier studies in seizure detection relied on handcrafted
+features and traditional classifiers. For example, Subasi (2007)
+used wavelet decomposition followed by neural networks [3].
+Tzallas et al. (2009) extracted time-frequency features and
+combined them with SVMs for identifying seizures [4]. While
+these methods achieved reasonable accuracy within subjects,
+they depended heavily on expert feature design and did not
+perform well across different subjects.
+With the rise of deep learning, models started to learn
+complex EEG patterns directly from raw or preprocessed
+data. Ullah et al. (2018) created a CNN-LSTM hybrid that
+achieved impressive accuracy on the Bonn and CHB-MIT
+datasets [2]. Acharya et al. (2019) introduced a 13-layer CNN
+that automated feature extraction from raw EEG. Lawhern
+et al. (2018) presented EEGNet, which used depthwise and
+separable convolutions to form an efficient design suitable for
+various EEG tasks [5]. Despite their success, most existing
+models have concentrated on validating their results within the
+same subject, which limits their reliability in clinical settings.
+
+This work uses EEG recordings from the Siena Scalp EEG
+Dataset [6], which tracks brain activity in 14 people with
+epilepsy. Each patient wore 29 scalp electrodes, recording at
+512 Hz, for about 128 hours in total.

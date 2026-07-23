@@ -149,6 +149,56 @@ def test_sentence_splitter_does_not_isolate_numbered_citation():
     assert sentences[1][0] == "This remains an open problem."
 
 
+def test_sentence_splitter_does_not_split_mid_sentence_before_citation():
+    # Regression test: found via testing against a real uploaded paper
+    # (Hosen et al., 2026). spaCy's sentencizer split this sentence in half
+    # with NO punctuation cue at all, right before a mid-sentence numbered
+    # citation -- silently severing the claim from its citation marker.
+    # This was a more severe version of the citation-only-fragment bug,
+    # since the dropped half contained real, non-citation claim content.
+    text = (
+        "This work uses EEG recordings from the Siena Scalp EEG Dataset [6], "
+        "which tracks brain activity in 14 people with epilepsy. "
+        "Each patient wore 29 scalp electrodes."
+    )
+    sentences = split_sentences(text)
+    assert len(sentences) == 2
+    assert sentences[0][0] == (
+        "This work uses EEG recordings from the Siena Scalp EEG Dataset [6], "
+        "which tracks brain activity in 14 people with epilepsy."
+    )
+
+
+def test_extractor_on_real_paper_excerpt():
+    # Integration test against real prose from an uploaded paper
+    # (Hosen et al., "Subject Independent Epileptic Seizure Recognition
+    # Using 1D-EEGNet Model", UCICS 2026). Exercises numbered citations,
+    # narrative citations, and sentences that carry BOTH a narrative and a
+    # numbered marker for the same reference -- a common real pattern this
+    # synthetic test sentences alone didn't cover.
+    fixture_path = Path(__file__).resolve().parent / "fixtures" / "hosen_2026_excerpt.txt"
+    text = fixture_path.read_text(encoding="utf-8")
+
+    claims = extract_claims(text)
+    assert len(claims) == 8
+
+    # Claim with both a narrative AND a numbered marker for the same reference
+    subasi_claim = next(c for c in claims if "Subasi" in c.sentence_text)
+    styles = {m.style for m in subasi_claim.citation_markers}
+    assert styles == {"narrative", "numbered"}
+
+    # Narrative-only claim, no numbered marker follows it in the source
+    acharya_claim = next(c for c in claims if "Acharya" in c.sentence_text)
+    assert len(acharya_claim.citation_markers) == 1
+    assert acharya_claim.citation_markers[0].style == "narrative"
+
+    # The mid-sentence citation bug case: full sentence must be intact
+    siena_claim = next(c for c in claims if "Siena Scalp EEG Dataset" in c.sentence_text)
+    assert siena_claim.sentence_text.strip() == (
+        "This work uses EEG recordings from the Siena Scalp EEG Dataset [6], "
+        "which tracks brain activity in 14 people with epilepsy."
+    )
+
 def test_extractor_handles_hard_line_wrap_before_citation():
     # Regression test: PDF-extracted text often has a hard line-wrap (single
     # newline with no semantic meaning) right before a citation marker. This

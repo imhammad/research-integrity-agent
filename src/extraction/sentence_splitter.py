@@ -21,17 +21,23 @@ def get_nlp():
     return _nlp
 
 
-def _is_citation_only_fragment(sentence_text: str) -> bool:
-    """True if, after removing numbered citation markers, no letters remain.
+def _mask_numbered_citations(text: str) -> str:
+    """Replace each numbered citation marker (e.g. "[6]", "[3, 4]") with a
+    same-length run of a neutral character before sentence segmentation.
 
-    Known limitation of spaCy's statistical (dependency-parse-based)
-    sentencizer: a numbered citation like "[3, 4]." at the end of a longer
-    sentence is sometimes misjudged as the start of a new sentence, producing
-    a standalone fragment such as "[3, 4]." with no actual sentence content.
-    This check identifies that failure mode so it can be corrected below.
+    Root-cause fix for a real, confirmed failure mode: spaCy's statistical
+    sentencizer sometimes misjudges a bracketed numbered citation as a
+    sentence boundary -- either isolating it as its own fragment, or (worse)
+    splitting mid-sentence directly before it with no punctuation cue at all,
+    silently severing the claim text from its citation. Numbered citations
+    carry no information the sentencizer needs, so masking them removes the
+    ambiguity at its source rather than patching each observed symptom.
+
+    Because the replacement is exactly the same length as the original
+    match, character offsets are preserved 1:1, so sentence boundaries found
+    on the masked text can be used directly to slice the original text.
     """
-    remainder = NUMBERED_CITATION_RE.sub("", sentence_text)
-    return not any(ch.isalpha() for ch in remainder)
+    return NUMBERED_CITATION_RE.sub(lambda m: "C" * len(m.group(0)), text)
 
 
 def split_sentences(text: str) -> List[Tuple[str, int, int]]:
@@ -40,24 +46,14 @@ def split_sentences(text: str) -> List[Tuple[str, int, int]]:
     Returns a list of (sentence_text, start_char, end_char) tuples, where
     start_char/end_char are offsets into the original input text -- needed
     so extracted claims can be traced back to their location in the source
-    document later in the pipeline.
-
-    Post-processing merges any sentence fragment that consists only of a
-    numbered citation marker (see _is_citation_only_fragment) back into the
-    preceding sentence, correcting a known spaCy sentence-boundary error.
+    document later in the pipeline. sentence_text is always sliced from the
+    original (unmasked) text, so citation markers appear intact.
     """
     nlp = get_nlp()
-    doc = nlp(text)
-    raw_sents = [(sent.text, sent.start_char, sent.end_char) for sent in doc.sents]
+    masked = _mask_numbered_citations(text)
+    doc = nlp(masked)
 
-    merged: List[Tuple[str, int, int]] = []
-    for sent_text, start, end in raw_sents:
-        if merged and _is_citation_only_fragment(sent_text):
-            prev_text, prev_start, prev_end = merged[-1]
-            # Reconstruct from the original text to preserve exact spacing
-            joined_text = text[prev_start:end]
-            merged[-1] = (joined_text, prev_start, end)
-        else:
-            merged.append((sent_text, start, end))
-
-    return merged
+    return [
+        (text[sent.start_char:sent.end_char], sent.start_char, sent.end_char)
+        for sent in doc.sents
+    ]

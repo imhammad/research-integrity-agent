@@ -6,12 +6,15 @@ Deliberately not LLM-based: sentence boundary detection in academic text
 deterministic problem. spaCy's statistical sentencizer handles this
 reliably and reproducibly, with no API cost and no non-determinism.
 """
+import re
 from typing import List, Tuple
 import spacy
 
 from .citation_patterns import NUMBERED_CITATION_RE
 
 _nlp = None  # lazy-loaded singleton so the model loads once per process
+
+_ET_AL_RE = re.compile(r"\bet al\.")
 
 
 def get_nlp():
@@ -40,6 +43,21 @@ def _mask_numbered_citations(text: str) -> str:
     return NUMBERED_CITATION_RE.sub(lambda m: "C" * len(m.group(0)), text)
 
 
+def _mask_et_al(text: str) -> str:
+    """Replace "et al." with a same-length placeholder that has no period.
+
+    Root-cause fix for a second, distinct real failure mode found via
+    testing against a real paper: "et al." is a classic hard case for
+    statistical sentence segmenters, since it ends in a period that can
+    legitimately end a sentence in other contexts. spaCy sometimes misjudges
+    "Author et al. [42] proposed..." as ending right after "et al.",
+    especially when what follows the citation doesn't look like a typical
+    continuation. Since "et al." is never actually a sentence boundary in
+    citation contexts, masking its period removes the ambiguity outright.
+    """
+    return _ET_AL_RE.sub(lambda m: "X" * len(m.group(0)), text)
+
+
 def split_sentences(text: str) -> List[Tuple[str, int, int]]:
     """Split text into sentences.
 
@@ -47,10 +65,10 @@ def split_sentences(text: str) -> List[Tuple[str, int, int]]:
     start_char/end_char are offsets into the original input text -- needed
     so extracted claims can be traced back to their location in the source
     document later in the pipeline. sentence_text is always sliced from the
-    original (unmasked) text, so citation markers appear intact.
+    original (unmasked) text, so citation markers and "et al." appear intact.
     """
     nlp = get_nlp()
-    masked = _mask_numbered_citations(text)
+    masked = _mask_et_al(_mask_numbered_citations(text))
     doc = nlp(masked)
 
     return [

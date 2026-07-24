@@ -1,0 +1,16 @@
+EEG measurements have been widely applied in clinical settings to diagnose and study disorders such as epilepsy
+(Smith, 2005; Acharya et al., 2013; Noachtar & Remi ´ , 2009; Tan et al., 2025) and multiple
+sclerosis (Mouazen et al., 2025; Striano et al., 2003). EEG analysis can also be used to determine the stages
+of sleep (Supratak et al., 2017; Zhang et al., 2024b; Li et al., 2022), diagnose sleep disorders (Tiwari et al.,
+2022), and have been the basis of our understanding of various fundamental brain rhythms such as alpha, beta,
+gamma, and theta waves within the brain (Buzsaki, 2006).
+
+Researchers have successfully decoded global brainstates such as focus (Su et al., 2022; Al-Nafjan & Aldayel,
+2022; Kaushik et al., 2022), emotions (Liang et al., 2019; Duan et al., 2020), meditative states (Schoenberg &
+Vago, 2019; Kora et al., 2021; Faber et al., 2017), stages of sleep (Supratak et al., 2017; Zhang et al., 2024b;
+Li et al., 2022) and many more from EEG data using relatively simple methods.
+
+The key intuition is that learning to denoise at all noise levels teaches the model a vector field that points
+back toward high-density regions of pdata. In the continuous-time limit this connects to score-based modeling
+(Hyvarinen & Dayan ¨ , 2005; Vincent, 2011), where the network approximates the score function and sampling
+follows a learned reverse diffusion trajectory.

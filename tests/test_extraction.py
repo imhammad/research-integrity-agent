@@ -149,6 +149,44 @@ def test_sentence_splitter_does_not_isolate_numbered_citation():
     assert sentences[1][0] == "This remains an open problem."
 
 
+def test_sentence_splitter_handles_author_et_al_bracket_hybrid():
+    # Regression test: found via testing against a real paper (He & Wu,
+    # 2019 -- the foundational Euclidean Alignment paper). "Author et al.
+    # [N]" is a common IEEE narrative-numbered hybrid style. spaCy sometimes
+    # misjudged "et al." itself as ending the sentence right before the
+    # citation, especially when the citation is followed directly by a verb
+    # rather than a conjunction. Masking "et al." (removing its period)
+    # alongside the numbered citation fixes this at the root.
+    text = (
+        "Recently, Zanini et al. [42] proposed a TL framework for the "
+        "MDRM classifier. Experiments have shown that RA-MDRM outperformed "
+        "MDRM in MI and ERP tasks."
+    )
+    sentences = split_sentences(text)
+    assert len(sentences) == 2
+    assert sentences[0][0] == (
+        "Recently, Zanini et al. [42] proposed a TL framework for the MDRM classifier."
+    )
+
+
+def test_extractor_handles_stray_diacritic_in_parenthetical_citation():
+    # Regression test: found via testing against a real paper (ZUNA, 2026).
+    # PDF text extraction sometimes emits a diacritic (e.g. the umlaut in
+    # "Noachtar & Remi") as a free-floating character surrounded by
+    # whitespace instead of correctly attaching it to the letter it belongs
+    # to. Left unhandled, this silently breaks the author-year regex and
+    # can cause an entire citation -- or the whole sentence containing it --
+    # to be dropped from extraction with no error raised.
+    text = (
+        "This connects to score-based modeling (Hyvarinen & Dayan \u00a8 , 2005; "
+        "Vincent, 2011), where the network approximates the score function."
+    )
+    claims = extract_claims(text)
+    assert len(claims) == 1
+    assert claims[0].citation_markers[0].style == "parenthetical"
+    assert "Hyvarinen & Dayan, 2005" in claims[0].citation_markers[0].raw_text
+    assert "Vincent, 2011" in claims[0].citation_markers[0].raw_text
+
 def test_sentence_splitter_does_not_split_mid_sentence_before_citation():
     # Regression test: found via testing against a real uploaded paper
     # (Hosen et al., 2026). spaCy's sentencizer split this sentence in half
@@ -198,6 +236,44 @@ def test_extractor_on_real_paper_excerpt():
         "This work uses EEG recordings from the Siena Scalp EEG Dataset [6], "
         "which tracks brain activity in 14 people with epilepsy."
     )
+
+def test_extractor_on_he_wu_2019_excerpt():
+    # Integration test against real prose from He & Wu (2019), "Transfer
+    # Learning for Brain-Computer Interfaces: A Euclidean Space Data
+    # Alignment Approach" -- the foundational EA paper. Exercises long
+    # chains of adjacent single-number bracket citations and the
+    # "Author et al. [N]" narrative-numbered hybrid style.
+    fixture_path = Path(__file__).resolve().parent / "fixtures" / "he_wu_2019_excerpt.txt"
+    text = fixture_path.read_text(encoding="utf-8")
+    claims = extract_claims(text)
+    assert len(claims) == 10
+
+    # A chain of 5 adjacent single-number bracket citations
+    tl_claim = next(c for c in claims if "successfully used for BCIs" in c.sentence_text)
+    numbered = [m for m in tl_claim.citation_markers if m.style == "numbered"]
+    assert len(numbered) >= 2  # at least "[23]" and the 5-citation chain
+
+    # The narrative-numbered hybrid case: full sentence must be intact
+    zanini_claim = next(c for c in claims if "Zanini et al." in c.sentence_text)
+    assert zanini_claim.sentence_text.strip().startswith("Recently, Zanini et al. [42] proposed")
+
+
+def test_extractor_on_zuna_2026_excerpt():
+    # Integration test against real prose from ZUNA (2026). Exercises
+    # heavy multi-citation parenthetical groups (up to 4 citations in one
+    # group) and a real PDF-extraction diacritic artifact.
+    fixture_path = Path(__file__).resolve().parent / "fixtures" / "zuna_2026_excerpt.txt"
+    text = fixture_path.read_text(encoding="utf-8")
+    claims = extract_claims(text)
+    assert len(claims) == 4
+
+    # The diacritic-mangled citation must be captured, not dropped
+    epilepsy_claim = claims[0]
+    assert any("Remi" in m.raw_text for m in epilepsy_claim.citation_markers)
+
+    # The sentence that was previously dropped entirely must now appear
+    hyvarinen_claim = next(c for c in claims if "Hyvarinen" in c.sentence_text)
+    assert "Vincent, 2011" in hyvarinen_claim.citation_markers[0].raw_text
 
 def test_extractor_handles_hard_line_wrap_before_citation():
     # Regression test: PDF-extracted text often has a hard line-wrap (single

@@ -1,0 +1,20 @@
+A brain-computer interface (BCI) [17], [34] is a communication pathway for a user to interact with his/her
+surroundings by using brain signals, which contain information about the user's cognitive state or intentions.
+Early BCI systems were mainly used to help people with disabilities [24]. Recently, the application scope of
+BCIs has been extended to able-bodied people [22], [33], and EEG becomes the most popular input signal
+because it is easy and safe to acquire, and has high temporal resolution. However, EEG measures the very weak
+brain electrical signals from the scalp, which results in poor spatial resolution and low signal-to-noise ratio [4].
+
+The covariance matrix of multi-channel EEG signals plays an important role in signal processing. For instance,
+common spatial pattern (CSP) filters [11], [16], [21], [25], computed directly from the covariance matrices, are
+the most popular spatial filters for MI. Recent years have also witnessed an increasing interest in using the EEG
+covariance matrices for both classification and regression [1], [7], [40], [41].
+
+Transfer learning (TL) [23], which utilizes information in source domains to improve the learning performance
+in a target domain, has also been successfully used for BCIs [12], [35], [36], [38], [39]. Kang et al. [13] and
+Lotte and Guan [19] improved covariance matrix estimation for CSP filters by regularizing it towards the average
+of other subjects, or constructing a common feature space.
+
+Recently, Zanini et al. [42] proposed a TL framework for the MDRM classifier, which is denoted as Riemannian
+alignment (RA)-MDRM in this paper, by utilizing the information of the resting state. Experiments have shown
+that RA-MDRM outperformed MDRM in MI and ERP tasks [42], when compared in a TL setting.

@@ -1,0 +1,124 @@
+REFERENCES
+[1] A. Barachant, S. Bonnet, M. Congedo, and C. Jutten, "Multiclass braincomputer interface classification by Riemannian geometry," IEEE Trans.
+on Biomedical Engineering, vol. 59, no. 4, pp. 920–928, 2012.
+[2] A. Barachant and M. Congedo, "A plug & play P300 BCI using
+information geometry," arXiv: 1409.0107, 2014.
+[3] C. M. Bishop, Pattern Recognition and Machine Learning. NY:
+Springer-Verlag, 2006.
+[4] B. Blankertz, R. Tomioka, S. Lemm, M. Kawanabe, and K. R. Muller,
+"Optimizing spatial filters for robust EEG single-trial analysis," IEEE
+Signal Processing Magazine, vol. 25, no. 1, pp. 41–56, 2008.
+[5] B. Blankertz, G. Dornhege, M. Krauledat, K. R. Muller, and G. Curio,
+"The non-invasive Berlin brain-computer interface: Fast acquisition of
+effective performance in untrained subjects," NeuroImage, vol. 37, no. 2,
+pp. 539–550, 2007.
+[6] P. Detti, "Siena scalp eeg database (version 1.0.0)," PhysioNet, 2020,
+rRID:SCR 007345. [Online]. Available: https://physionet.org/content/
+siena-scalp-eeg/1.0.0
+[7] M. Congedo, A. Barachant, and A. Andreev, "A new generation of braincomputer interface based on Riemannian geometry," arXiv: 1310.8115,
+2013.
+[8] P. T. Fletcher and S. Joshi, "Principal geodesic analysis on symmetric
+spaces: Statistics of diffusion tensors," Lecture Notes in Computer
+Science, vol. 3117, pp. 87–98, 2004.
+[9] A. L. Goldberger, L. A. N. Amaral, L. Glass, J. M. Hausdorff, P. C.
+Ivanov, R. G. Mark, J. E. Mietus, G. B. Moody, C.-K. Peng, and H. E.
+Stanley, "PhysioBank, PhysioToolkit, and PhysioNet: Components of a
+new research resource for complex physiologic signals," Circulation,
+vol. 101, no. 23, pp. e215–e220, 2000.
+[10] A. Gretton, K. M. Borgwardt, M. Rasch, B. Scholkopf, and A. J. Smola,
+"A kernel method for the two-sample-problem," in Proc. Advances in
+Neural Information Processing Systems, Vancouver, Canada, Dec. 2007,
+pp. 513–520.
+[11] H. He and D. Wu, "Transfer learning enhanced common spatial pattern
+filtering for brain computer interfaces (BCIs): Overview and a new
+approach," in Proc. 24th Int'l. Conf. on Neural Information Processing,
+Guangzhou, China, November 2017.
+[12] V. Jayaram, M. Alamgir, Y. Altun, B. Scholkopf, and M. GrosseWentrup, "Transfer learning in brain-computer interfaces," IEEE Computational Intelligence Magazine, vol. 11, no. 1, pp. 20–31, 2016.
+[13] H. Kang, Y. Nam, and S. Choi, "Composite common spatial pattern for
+subject-to-subject transfer," Signal Processing Letters, vol. 16, no. 8, pp.
+683–686, 2009.
+[14] P.-J. Kindermans, M. Tangermann, K.-R. Muller, and B. Schrauwen,
+"Integrating dynamic stopping, transfer learning and language models in
+an adaptive zero-training ERP speller," Journal of Neural Engineering,
+vol. 11, no. 3, p. 035005, 2014.
+[15] R. J. Kobler and R. Scherer, "Restricted Boltzmann machines in sensory motor rhythm brain-computer interfacing: a study on inter-subject
+transfer and co-adaptation," in Proc. IEEE Int'l Conf. on Systems, Man,
+and Cybernetics. Budapest, Hungary: IEEE, Oct. 2016, pp. 469–474.
+[16] Z. J. Koles, M. S. Lazar, and S. Z. Zhou, "Spatial patterns underlying
+population differences in the background EEG," Brain Topography,
+vol. 2, no. 4, pp. 275–284, 1990.
+[17] B. J. Lance, S. E. Kerick, A. J. Ries, K. S. Oie, and K. McDowell,
+"Brain-computer interface technologies in the coming decades," Proc.
+of the IEEE, vol. 100, no. 3, pp. 1585–1599, 2012.
+[18] H. W. Lilliefors, "On the Kolmogorov-Smirnov test for normality
+with mean and variance unknown," Journal of the American statistical
+Association, vol. 62, no. 318, pp. 399–402, 1967.
+[19] F. Lotte and C. Guan, "Learning from other subjects helps reducing
+brain-computer interface calibration time," in Proc. IEEE Int'l. Conf. on
+Acoustics Speech and Signal Processing (ICASSP), Dallas, TX, March
+2010.
+[20] A. Matran-Fernandez and R. Poli, "Towards the automated localisation
+of targets in rapid image-sifting by collaborative brain-computer interfaces," PLoS ONE, vol. 12, pp. 21–34, 2017.
+[21] J. Muller-Gerking, G. Pfurtscheller, and H. Flyvbjerg, "Designing optimal spatial filters for single-trial EEG classification in a movement
+task," Clinical Neurophysiology, vol. 110, no. 5, pp. 787–798, 1999.
+[22] L. F. Nicolas-Alonso and J. Gomez-Gil, "Brain computer interfaces, a
+review," Sensors, vol. 12, no. 2, pp. 1211–1279, 2012.
+[23] S. J. Pan and Q. Yang, "A survey on transfer learning," IEEE Trans.
+on Knowledge and Data Engineering, vol. 22, no. 10, pp. 1345–1359,
+2010.
+[24] G. Pfurtscheller, G. R. Muller-Putz, R. Scherer, and C. Neuper, "Rehabilitation with brain-computer interface systems," Computer, vol. 41,
+no. 10, pp. 58–65, 2008.
+[25] H. Ramoser, J. Muller-Gerking, and G. Pfurtscheller, "Optimal spatial
+filtering of single trial EEG during imagined hand movement," IEEE
+Trans. on Rehabilitation Engineering, vol. 8, no. 4, pp. 441–446, 2000.
+[26] B. Rivet, A. Souloumiac, V. Attina, and G. Gibert, "xDAWN algorithm
+to enhance evoked potentials: application to brain-computer interface,"
+IEEE Trans. on Biomedical Engineering, vol. 56, no. 8, pp. 2035–2043,
+2009.
+[27] W. Samek, F. Meinecke, and K.-R. Muller, "Transferring subspaces between subjects in brain-computer interfacing," IEEE Trans. on Biomedical Engineering, vol. 60, no. 8, pp. 2289–2298, 2013.
+[28] H. Shimodaira, "Improving predictive inference under covariate shift by
+weighting the log-likelihood function," Journal of Statistical Planning
+and Inference, vol. 90, no. 2, pp. 227–244, 2000.
+[29] M. Sugiyama, S. Nakajima, H. Kashima, P. V. Buenau, and M. Kawanabe, "Direct importance estimation with model selection and its application to covariate shift adaptation," in Proc. 32nd Annual Conf.
+on Advances in Neural Information Processing Systems, Vancouver,
+Canada, Dec. 2008, pp. 1433–1440.
+[30] B. Sun, J. Feng, and K. Saenko, "Return of frustratingly easy domain
+adaptation," in Proc. 30th AAAI Conf. on Artificial Intelligence, vol. 6,
+no. 7, Phoenix, AZ, Feb. 2016, pp. 2058–2065.
+[31] P. E. Utgoff, "Shift of bias for inductive concept learning," in Machine
+learning: An artificial intelligence approach, R. Michalski, J. Carbonell,
+and T. Mitchell, Eds. CA: Morgan Kaufmann, 1986, vol. 2, pp. 107–
+148.
+[32] L. van der Maaten and G. Hinton, "Visualizing data using t-SNE,"
+Journal of Machine Learning Research, vol. 9, pp. 2579–2605, 2008.
+[33] J. van Erp, F. Lotte, and M. Tangermann, "Brain-computer interfaces:
+Beyond medical applications," Computer, vol. 45, no. 4, pp. 26–34,
+2012.
+[34] J. R. Wolpaw, N. Birbaumer, D. J. McFarland, G. Pfurtscheller, and T. M.
+Vaughan, "Brain-computer interfaces for communication and control,"
+Clinical Neurophysiology, vol. 113, no. 6, pp. 767–791, 2002.
+[35] D. Wu, "Active semi-supervised transfer learning (ASTL) for offline
+BCI calibration," in Proc. IEEE Int'l. Conf. on Systems, Man and
+Cybernetics, Banff, Canada, October 2017.
+[36] D. Wu, "Online and offline domain adaptation for reducing BCI calibration effort," IEEE Trans. on Human-Machine Systems, vol. 47, no. 4,
+pp. 550–563, 2017.
+[37] D. Wu, J.-T. King, C.-H. Chuang, C.-T. Lin, and T.-P. Jung, "Spatial
+filtering for EEG-based regression problems in brain-computer interface
+(BCI)," IEEE Trans. on Fuzzy Systems, vol. 26, no. 2, pp. 771–781,
+2018.
+[38] D. Wu, V. J. Lawhern, S. Gordon, B. J. Lance, and C.-T. Lin, "Driver
+drowsiness estimation from EEG signals using online weighted adaptation regularization for regression (OwARR)," IEEE Trans. on Fuzzy
+Systems, vol. 25, no. 6, pp. 1522–1535, 2017.
+[39] D. Wu, V. J. Lawhern, W. D. Hairston, and B. J. Lance, "Switching
+EEG headsets made easy: Reducing offline calibration effort using active
+wighted adaptation regularization," IEEE Trans. on Neural Systems and
+Rehabilitation Engineering, vol. 24, no. 11, pp. 1125–1137, 2016.
+[40] D. Wu, V. J. Lawhern, B. J. Lance, S. Gordon, T.-P. Jung, and C.-
+T. Lin, "EEG-based user reaction time estimation using Riemannian
+geometry features," IEEE Trans. on Neural Systems and Rehabilitation
+Engineering, vol. 25, no. 11, pp. 2157–2168, 2017.
+[41] F. Yger, M. Berar, and F. Lotte, "Riemannian approaches in braincomputer interfaces: a review," IEEE Trans. on Neural Systems and
+Rehabilitation Engineering, vol. 25, no. 10, pp. 1753–1762, 2017.
+[42] P. Zanini, M. Congedo, C. Jutten, S. Said, and Y. Berthoumieu, "Transfer
+learning: a Riemannian geometry framework with applications to braincomputer interfaces," IEEE Trans. on Biomedical Engineering, vol. 65,
+no. 5, pp. 1107–1116, 2018.

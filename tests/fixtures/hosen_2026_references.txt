@@ -1,0 +1,38 @@
+REFERENCES
+[1] A. T. Tzallas, M. G. Tsipouras, D. G. Tsalikakis, E. C. Karvounis,
+L. Astrakas, S. Konitsiotis, and M. Tzaphlidou, "Automated epileptic
+seizure detection methods: a review study," Epilepsy-histological, electroencephalographic and psychological aspects, pp. 75–98, 2012.
+[2] I. Ullah, M. Hussain, H. Aboalsamh et al., "An automated system
+for epilepsy detection using eeg brain signals based on deep learning
+approach," Expert Systems with Applications, vol. 107, pp. 61–71, 2018.
+[3] A. Subasi, "Eeg signal classification using wavelet feature extraction and
+a mixture of expert model," Expert Systems with Applications, vol. 32,
+no. 4, pp. 1084–1093, 2007.
+[4] A. T. Tzallas, M. G. Tsipouras, and D. I. Fotiadis, "Epileptic seizure
+detection in eegs using time–frequency analysis," IEEE transactions on
+information technology in biomedicine, vol. 13, no. 5, pp. 703–710,
+2009.
+[5] V. J. Lawhern, A. J. Solon, N. R. Waytowich, S. M. Gordon, C. P. Hung,
+and B. J. Lance, "Eegnet: a compact convolutional neural network for
+eeg-based brain–computer interfaces," Journal of neural engineering,
+vol. 15, no. 5, p. 056013, 2018.
+[6] P. Detti, "Siena scalp eeg database (version 1.0.0)," PhysioNet, 2020,
+rRID:SCR 007345. [Online]. Available: https://physionet.org/content/
+siena-scalp-eeg/1.0.0
+[7] P. Kumar and P. K. Upadhyay, "A hybrid optimization-enhanced 1drescnn framework for epileptic spike detection in scalp eeg signals,"
+Scientific Reports, vol. 15, no. 1, p. 5707, 2025.
+[8] P. Kumar, P. K. Upadhyay, and M. K. Panda, "Snsdeepnet: spike and
+non-spike detection in epilepsy," Engineering Research Express, vol. 6,
+no. 3, p. 035365, 2024.
+[9] X. Jiang, X. Liu, Y. Liu, Q. Wang, B. Li, and L. Zhang, "Epileptic
+seizures detection and the analysis of optimal seizure prediction horizon
+based on frequency and phase analysis," Frontiers in Neuroscience,
+vol. 17, p. 1191683, 2023.
+[10] B. Kapoor, B. Nagpal, P. K. Jain, A. Abraham, and L. A. Gabralla,
+"Epileptic seizure prediction based on hybrid seek optimization tuned
+ensemble classifier using eeg signals," Sensors, vol. 23, no. 1, p. 423,
+2022.
+[11] X. Li, K. Zhang, X. Wang, Z. Zhang, P. Zhu, M. Zhu, X. Zeng,
+and S. Chen, "Feature fusion based on global-local weighted attention
+model for automatic epileptic seizure detection," Journal of Neural
+Engineering, vol. 22, no. 5, p. 056016, 2025.
